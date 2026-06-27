@@ -1,0 +1,626 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+    <title>Login - YP Nusantara Sejahtera</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            min-height: 100vh;
+            background: linear-gradient(135deg, #1a2a4f 0%, #0f1a2e 50%, #1a2a4f 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow-x: hidden;
+            overflow-y: auto;
+            padding: 40px 20px;
+        }
+
+        /* Background Decoration */
+        .bg-decoration {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            z-index: 0;
+        }
+
+        .bg-circle {
+            position: absolute;
+            border-radius: 50%;
+            background: rgba(102, 126, 234, 0.1);
+            animation: float 20s infinite ease-in-out;
+        }
+
+        .bg-circle-1 {
+            width: 300px;
+            height: 300px;
+            top: -100px;
+            right: -100px;
+            animation-delay: 0s;
+        }
+
+        .bg-circle-2 {
+            width: 500px;
+            height: 500px;
+            bottom: -200px;
+            left: -150px;
+            animation-delay: 5s;
+        }
+
+        .bg-circle-3 {
+            width: 200px;
+            height: 200px;
+            top: 50%;
+            right: 20%;
+            animation-delay: 10s;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0) scale(1); }
+            50% { transform: translateY(-30px) scale(1.05); }
+        }
+
+        /* Login Container */
+        .login-container {
+            width: 100%;
+            max-width: 460px;
+            margin: 0 auto;
+            z-index: 1;
+            animation: fadeInUp 0.8s ease-out;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Card Glassmorphism */
+        .login-card {
+            background: rgba(255, 255, 255, 0.98);
+            backdrop-filter: blur(10px);
+            border-radius: 32px;
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+            overflow: hidden;
+            transition: transform 0.3s;
+        }
+
+        .login-card:hover {
+            transform: translateY(-5px);
+        }
+
+        /* Header */
+        .login-header {
+            text-align: center;
+            padding: 32px 32px 20px;
+            background: linear-gradient(135deg, #f8fafc 0%, #ffffff 100%);
+        }
+
+        .logo-wrapper {
+            width: 75px;
+            height: 75px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 16px;
+            box-shadow: 0 10px 25px -5px rgba(102, 126, 234, 0.4);
+        }
+
+        .logo-wrapper i {
+            font-size: 36px;
+            color: white;
+        }
+
+        .login-header h1 {
+            font-size: 22px;
+            font-weight: 800;
+            color: #1a2a4f;
+            margin-bottom: 6px;
+            letter-spacing: -0.5px;
+        }
+
+        .yayasan-badge {
+            display: inline-block;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 4px 12px;
+            border-radius: 30px;
+            font-size: 10px;
+            font-weight: 600;
+            margin-bottom: 10px;
+        }
+
+        .login-header p {
+            color: #6c757d;
+            font-size: 13px;
+        }
+
+        /* School Badges */
+        .school-badges {
+            display: flex;
+            justify-content: center;
+            gap: 6px;
+            margin-top: 12px;
+            flex-wrap: wrap;
+        }
+
+        .school-badge {
+            font-size: 9px;
+            padding: 3px 10px;
+            border-radius: 30px;
+            background: #f1f5f9;
+            color: #475569;
+            font-weight: 500;
+        }
+
+        /* Form */
+        .login-form {
+            padding: 0 32px 28px;
+        }
+
+        .input-group {
+            margin-bottom: 20px;
+        }
+
+        .input-group label {
+            display: block;
+            margin-bottom: 6px;
+            font-weight: 600;
+            color: #334155;
+            font-size: 12px;
+        }
+
+        .input-wrapper {
+            position: relative;
+        }
+
+        .input-wrapper i:first-child {
+            position: absolute;
+            left: 14px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: #94a3b8;
+            font-size: 14px;
+        }
+
+        .input-wrapper input {
+            width: 100%;
+            padding: 12px 14px 12px 42px;
+            border: 1.5px solid #e2e8f0;
+            border-radius: 14px;
+            font-size: 13px;
+            font-family: 'Inter', sans-serif;
+            transition: all 0.3s;
+            background: white;
+        }
+
+        .input-wrapper input:focus {
+            outline: none;
+            border-color: #667eea;
+            box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+        }
+
+        /* Password Toggle */
+        .password-toggle {
+            position: absolute;
+            right: 14px;
+            top: 50%;
+            transform: translateY(-50%);
+            cursor: pointer;
+            color: #94a3b8;
+            transition: all 0.3s;
+        }
+
+        .password-toggle:hover {
+            color: #667eea;
+        }
+
+        /* Remember Me */
+        .remember-forgot {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 22px;
+            font-size: 12px;
+        }
+
+        .checkbox-wrapper {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            cursor: pointer;
+        }
+
+        .checkbox-wrapper input {
+            width: 16px;
+            height: 16px;
+            cursor: pointer;
+            accent-color: #667eea;
+        }
+
+        .forgot-link {
+            color: #667eea;
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 12px;
+        }
+
+        .forgot-link:hover {
+            color: #764ba2;
+        }
+
+        /* Button */
+        .btn-login {
+            width: 100%;
+            padding: 12px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border: none;
+            border-radius: 14px;
+            font-size: 14px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+            font-family: 'Inter', sans-serif;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+        }
+
+        .btn-login:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px -5px rgba(102, 126, 234, 0.4);
+        }
+
+        .btn-login:active {
+            transform: translateY(0);
+        }
+
+        /* Demo Credentials */
+        .demo-cred {
+            margin-top: 24px;
+            padding-top: 20px;
+            border-top: 1px solid #e2e8f0;
+            text-align: center;
+        }
+
+        .demo-cred p {
+            font-size: 11px;
+            color: #94a3b8;
+            margin-bottom: 8px;
+        }
+
+        .cred-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            background: #f1f5f9;
+            padding: 5px 12px;
+            border-radius: 30px;
+            margin: 4px;
+            font-family: monospace;
+            font-size: 11px;
+            color: #334155;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .cred-badge:hover {
+            background: #e0e7ff;
+        }
+
+        .cred-badge i {
+            color: #667eea;
+            font-size: 11px;
+        }
+
+        /* Alert */
+        .alert {
+            display: none;
+            background: #fce8e6;
+            color: #b91c1c;
+            padding: 10px 14px;
+            border-radius: 12px;
+            margin-bottom: 16px;
+            font-size: 12px;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .alert.show {
+            display: flex;
+        }
+
+        /* Footer */
+        .login-footer {
+            text-align: center;
+            padding: 16px 32px 24px;
+            background: #f8fafc;
+            border-top: 1px solid #e2e8f0;
+        }
+
+        .login-footer p {
+            font-size: 11px;
+            color: #94a3b8;
+        }
+
+        .login-footer a {
+            color: #667eea;
+            text-decoration: none;
+        }
+
+        /* Responsive */
+        @media (max-width: 480px) {
+            body {
+                padding: 20px 16px;
+            }
+            .login-header {
+                padding: 24px 24px 16px;
+            }
+            .login-form {
+                padding: 0 24px 24px;
+            }
+            .login-footer {
+                padding: 16px 24px 20px;
+            }
+            .logo-wrapper {
+                width: 65px;
+                height: 65px;
+            }
+            .logo-wrapper i {
+                font-size: 30px;
+            }
+            .login-header h1 {
+                font-size: 20px;
+            }
+        }
+
+        /* Untuk layar sangat kecil (height < 700px) */
+        @media (max-height: 700px) {
+            body {
+                padding: 16px;
+            }
+            .login-header {
+                padding: 20px 24px 12px;
+            }
+            .login-header h1 {
+                font-size: 20px;
+            }
+            .logo-wrapper {
+                width: 55px;
+                height: 55px;
+                margin-bottom: 12px;
+            }
+            .logo-wrapper i {
+                font-size: 26px;
+            }
+            .input-group {
+                margin-bottom: 14px;
+            }
+            .login-form {
+                padding: 0 24px 20px;
+            }
+            .login-footer {
+                padding: 12px 24px 16px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Background Decoration -->
+    <div class="bg-decoration">
+        <div class="bg-circle bg-circle-1"></div>
+        <div class="bg-circle bg-circle-2"></div>
+        <div class="bg-circle bg-circle-3"></div>
+    </div>
+
+    <!-- Login Container -->
+    <div class="login-container">
+        <div class="login-card">
+            <div class="login-header">
+                <div class="logo-wrapper">
+                    <i class="fas fa-landmark"></i>
+                </div>
+                <span class="yayasan-badge">AKREDITASI UNGGUL</span>
+                <h1>YP Nusantara Sejahtera</h1>
+                <p>Admin Panel - Kelola 5 Jenjang Pendidikan</p>
+                <div class="school-badges">
+                    <span class="school-badge">🏫 TK</span>
+                    <span class="school-badge">📚 SD</span>
+                    <span class="school-badge">📖 SMP</span>
+                    <span class="school-badge">🎓 SMA</span>
+                    <span class="school-badge">🏛️ Universitas</span>
+                </div>
+            </div>
+
+            <form class="login-form" id="loginForm">
+                <div class="alert" id="alertMessage">
+                    <i class="fas fa-exclamation-circle"></i>
+                    <span id="alertText"></span>
+                </div>
+
+                <div class="input-group">
+                    <label>Email Admin</label>
+                    <div class="input-wrapper">
+                        <i class="fas fa-envelope"></i>
+                        <input type="email" id="email" placeholder="admin@nusantara.sch.id" value="admin@nusantara.sch.id">
+                    </div>
+                </div>
+
+                <div class="input-group">
+                    <label>Password</label>
+                    <div class="input-wrapper">
+                        <i class="fas fa-lock"></i>
+                        <input type="password" id="password" placeholder="Masukkan password" value="admin123">
+                        <span class="password-toggle" onclick="togglePassword()">
+                            <i class="fas fa-eye-slash" id="toggleIcon"></i>
+                        </span>
+                    </div>
+                </div>
+
+                <div class="remember-forgot">
+                    <label class="checkbox-wrapper">
+                        <input type="checkbox" id="rememberMe">
+                        <span>Ingat saya</span>
+                    </label>
+                    <a href="#" class="forgot-link">Lupa password?</a>
+                </div>
+
+                <button type="submit" class="btn-login">
+                    <i class="fas fa-sign-in-alt"></i> Masuk Dashboard
+                </button>
+
+                <div class="demo-cred">
+                    <p>🔐 Demo Akses Admin Yayasan</p>
+                    <div class="cred-badge" onclick="fillCreds('admin@nusantara.sch.id', 'admin123')">
+                        <i class="fas fa-user-shield"></i>
+                        <span>admin@nusantara.sch.id</span>
+                    </div>
+                    <div class="cred-badge" onclick="fillCreds('admin@nusantara.sch.id', 'admin123')">
+                        <i class="fas fa-key"></i>
+                        <span>admin123</span>
+                    </div>
+                </div>
+            </form>
+
+            <div class="login-footer">
+                <p>© 2024 Yayasan Pendidikan Nusantara Sejahtera</p>
+                <p>All rights reserved. | <a href="#">Kebijakan Privasi</a></p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Check if already logged in
+        if(localStorage.getItem('isLoggedIn') === 'true') {
+            window.location.href = 'pages/dashboard.html';
+        }
+
+        // Toggle Password Visibility
+        function togglePassword() {
+            const passwordInput = document.getElementById('password');
+            const toggleIcon = document.getElementById('toggleIcon');
+            
+            if(passwordInput.type === 'password') {
+                passwordInput.type = 'text';
+                toggleIcon.classList.remove('fa-eye-slash');
+                toggleIcon.classList.add('fa-eye');
+            } else {
+                passwordInput.type = 'password';
+                toggleIcon.classList.remove('fa-eye');
+                toggleIcon.classList.add('fa-eye-slash');
+            }
+        }
+
+        // Fill credentials
+        function fillCreds(email, password) {
+            document.getElementById('email').value = email;
+            document.getElementById('password').value = password;
+            
+            // Highlight effect
+            const emailInput = document.getElementById('email');
+            const passInput = document.getElementById('password');
+            emailInput.style.borderColor = '#34a853';
+            passInput.style.borderColor = '#34a853';
+            setTimeout(() => {
+                emailInput.style.borderColor = '#e2e8f0';
+                passInput.style.borderColor = '#e2e8f0';
+            }, 1000);
+        }
+
+        // Show alert
+        function showAlert(message, isError = true) {
+            const alertDiv = document.getElementById('alertMessage');
+            const alertText = document.getElementById('alertText');
+            alertText.textContent = message;
+            alertDiv.classList.add('show');
+            alertDiv.style.background = isError ? '#fce8e6' : '#dcfce7';
+            alertDiv.style.color = isError ? '#b91c1c' : '#166534';
+            
+            setTimeout(() => {
+                alertDiv.classList.remove('show');
+            }, 3000);
+        }
+
+        // Handle Login
+        document.getElementById('loginForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const email = document.getElementById('email').value.trim();
+            const password = document.getElementById('password').value;
+            const rememberMe = document.getElementById('rememberMe').checked;
+            
+            // Validasi
+            if(!email || !password) {
+                showAlert('⚠️ Email dan password harus diisi!');
+                return;
+            }
+            
+            // Demo validation
+            if(email === 'admin@nusantara.sch.id' && password === 'admin123') {
+                // Save to localStorage
+                localStorage.setItem('isLoggedIn', 'true');
+                localStorage.setItem('adminEmail', email);
+                
+                if(rememberMe) {
+                    localStorage.setItem('rememberedEmail', email);
+                } else {
+                    localStorage.removeItem('rememberedEmail');
+                }
+                
+                // Show success
+                showAlert('✅ Login berhasil! Mengalihkan...', false);
+                
+                // Redirect after delay
+                setTimeout(() => {
+                    window.location.href = 'pages/dashboard.html';
+                }, 1000);
+            } else {
+                showAlert('❌ Email atau password salah! Silakan coba lagi.');
+                
+                // Shake effect
+                const card = document.querySelector('.login-card');
+                card.style.transform = 'translateX(10px)';
+                setTimeout(() => { card.style.transform = 'translateX(-10px)'; }, 50);
+                setTimeout(() => { card.style.transform = 'translateX(5px)'; }, 100);
+                setTimeout(() => { card.style.transform = 'translateX(0)'; }, 150);
+            }
+        });
+
+        // Load remembered email
+        const rememberedEmail = localStorage.getItem('rememberedEmail');
+        if(rememberedEmail) {
+            document.getElementById('email').value = rememberedEmail;
+            document.getElementById('rememberMe').checked = true;
+        }
+
+        // Enter key submit
+        document.getElementById('password').addEventListener('keypress', function(e) {
+            if(e.key === 'Enter') {
+                document.getElementById('loginForm').dispatchEvent(new Event('submit'));
+            }
+        });
+    </script>
+</body>
+</html>
