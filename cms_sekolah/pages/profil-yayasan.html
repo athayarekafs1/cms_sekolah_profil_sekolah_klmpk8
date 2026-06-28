@@ -2,7 +2,7 @@
 <html lang="id">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>Profil Yayasan - YP Nusantara Sejahtera</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -18,7 +18,7 @@
             background: #f5f7fb;
         }
 
-        /* ==================== SIDEBAR STANDAR ==================== */
+        /* ==================== SIDEBAR ==================== */
         .sidebar {
             position: fixed;
             left: 0;
@@ -111,31 +111,13 @@
             cursor: pointer;
         }
 
-        @media (max-width: 1024px) {
-            .sidebar {
-                left: -280px;
-            }
-            .sidebar.active {
-                left: 0;
-            }
-            .main-content {
-                margin-left: 0;
-                padding: 20px;
-            }
-            .menu-toggle {
-                display: block;
-            }
-        }
-        /* ==================== END SIDEBAR ==================== */
-
-        /* Main Content */
+        /* ==================== MAIN CONTENT ==================== */
         .main-content {
             margin-left: 280px;
             padding: 24px 32px;
             transition: all 0.3s;
         }
 
-        /* Topbar */
         .topbar {
             background: white;
             border-radius: 20px;
@@ -165,7 +147,7 @@
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             color: white;
             border: none;
-            padding: 12px 24px;
+            padding: 12px 28px;
             border-radius: 12px;
             cursor: pointer;
             font-weight: 600;
@@ -182,125 +164,26 @@
             box-shadow: 0 6px 14px rgba(102,126,234,0.4);
         }
 
-        /* Profile Cards */
+        /* Profile Card */
         .profile-card {
             background: white;
-            border-radius: 24px;
+            border-radius: 20px;
             padding: 28px;
-            margin-bottom: 24px;
-            box-shadow: 0 1px 3px rgba(0,0,0,0.04);
             border: 1px solid #f0f2f5;
-        }
-
-        .profile-card h2 {
-            font-size: 20px;
-            font-weight: 700;
-            color: #1a2a4f;
-            margin-bottom: 20px;
-            display: flex;
-            align-items: center;
-            gap: 12px;
-            border-left: 4px solid #667eea;
-            padding-left: 16px;
-        }
-
-        .profile-card h2 i {
-            color: #667eea;
-            font-size: 22px;
-        }
-
-        .form-group {
-            margin-bottom: 20px;
-        }
-
-        .form-group label {
-            display: block;
-            font-weight: 600;
-            font-size: 13px;
-            margin-bottom: 6px;
-            color: #334155;
-        }
-
-        .form-group input, .form-group textarea {
-            width: 100%;
-            padding: 12px 14px;
-            border: 1.5px solid #e2e8f0;
-            border-radius: 12px;
-            font-family: 'Inter', sans-serif;
-            font-size: 14px;
-            transition: all 0.2s;
-        }
-
-        .form-group input:focus, .form-group textarea:focus {
-            outline: none;
-            border-color: #667eea;
-            box-shadow: 0 0 0 3px rgba(102,126,234,0.1);
-        }
-
-        .form-group textarea {
-            resize: vertical;
-            min-height: 100px;
-        }
-
-        .form-row {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 20px;
-        }
-
-        .visi-misi-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 24px;
             margin-bottom: 24px;
         }
 
-        .info-box {
-            background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
-            padding: 24px;
-            border-radius: 20px;
-            border: 1px solid #e2e8f0;
-        }
-
-        .info-box h3 {
-            font-size: 16px;
-            font-weight: 600;
-            color: #1a2a4f;
-            margin-bottom: 12px;
+        .profile-header {
             display: flex;
+            gap: 24px;
             align-items: center;
-            gap: 8px;
+            flex-wrap: wrap;
+            margin-bottom: 28px;
+            padding-bottom: 24px;
+            border-bottom: 1px solid #f0f2f5;
         }
 
-        .info-box p {
-            font-size: 14px;
-            color: #475569;
-            line-height: 1.6;
-        }
-
-        .motto-card {
-            background: linear-gradient(135deg, #667eea15 0%, #764ba215 100%);
-            border: 1px solid #667eea30;
-        }
-
-        .image-upload {
-            margin-bottom: 20px;
-        }
-
-        .logo-preview {
-            width: 120px;
-            height: 120px;
-            border-radius: 20px;
-            object-fit: cover;
-            margin-top: 10px;
-            border: 3px solid #667eea;
-            background: #f1f5f9;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .logo-placeholder {
+        .profile-logo {
             width: 120px;
             height: 120px;
             border-radius: 20px;
@@ -310,16 +193,398 @@
             justify-content: center;
             color: white;
             font-size: 48px;
-            margin-top: 10px;
+            flex-shrink: 0;
+            cursor: pointer;
+            transition: all 0.3s;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .profile-logo:hover {
+            opacity: 0.8;
+        }
+
+        .profile-logo img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .profile-logo .upload-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: rgba(0,0,0,0.6);
+            color: white;
+            text-align: center;
+            padding: 8px;
+            font-size: 11px;
+            font-weight: 500;
+        }
+
+        .profile-title h2 {
+            font-size: 24px;
+            font-weight: 700;
+            color: #1a2a4f;
+        }
+
+        .profile-title p {
+            color: #6c757d;
+            font-size: 14px;
+            margin-top: 4px;
+        }
+
+        /* Form */
+        .form-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+
+        .form-group {
+            margin-bottom: 16px;
+        }
+
+        .form-group label {
+            display: block;
+            font-weight: 600;
+            font-size: 13px;
+            color: #334155;
+            margin-bottom: 6px;
+        }
+
+        .form-group label i {
+            margin-right: 6px;
+            color: #667eea;
+        }
+
+        .form-group input,
+        .form-group textarea,
+        .form-group select {
+            width: 100%;
+            padding: 10px 14px;
+            border: 1.5px solid #e2e8f0;
+            border-radius: 10px;
+            font-family: 'Inter', sans-serif;
+            font-size: 13px;
+            transition: all 0.3s;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: #667eea;
+            box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+        }
+
+        .form-group textarea {
+            min-height: 100px;
+            resize: vertical;
+        }
+
+        .form-full {
+            grid-column: 1 / -1;
+        }
+
+        .image-preview {
+            width: 100%;
+            height: 120px;
+            object-fit: cover;
+            border-radius: 10px;
+            margin-top: 8px;
+            border: 2px solid #667eea;
+            display: none;
+        }
+
+        .alert {
+            padding: 12px 16px;
+            border-radius: 10px;
+            margin-bottom: 16px;
+            display: none;
+        }
+
+        .alert-success {
+            background: #dcfce7;
+            color: #166534;
+            display: block;
+        }
+
+        .alert-error {
+            background: #fee2e2;
+            color: #b91c1c;
+            display: block;
+        }
+
+        .footer {
+            margin-top: 24px;
+            text-align: center;
+            padding: 16px;
+            color: #94a3b8;
+            font-size: 12px;
+        }
+
+        /* ================================================================ */
+        /* ========== RESPONSIVE UNTUK HP ========== */
+        /* ================================================================ */
+
+        @media (max-width: 1024px) {
+            .sidebar {
+                left: -280px;
+            }
+            .sidebar.active {
+                left: 0;
+                box-shadow: 4px 0 30px rgba(0,0,0,0.3);
+            }
+            .main-content {
+                margin-left: 0;
+                padding: 16px;
+            }
+            .menu-toggle {
+                display: block;
+            }
+            .topbar {
+                padding: 14px 18px;
+                margin-top: 56px;
+            }
+            .page-title h1 {
+                font-size: 20px;
+            }
         }
 
         @media (max-width: 768px) {
-            .visi-misi-grid {
-                grid-template-columns: 1fr;
+            /* TOPBAR */
+            .topbar {
+                flex-direction: column !important;
+                align-items: stretch !important;
+                padding: 12px !important;
+                margin-top: 52px !important;
+                gap: 8px !important;
+                border-radius: 12px !important;
             }
-            .form-row {
-                grid-template-columns: 1fr;
+            .page-title h1 {
+                font-size: 17px !important;
+                word-break: break-word !important;
             }
+            .page-title p {
+                font-size: 11px !important;
+                word-break: break-word !important;
+            }
+            .btn-save {
+                width: 100% !important;
+                justify-content: center !important;
+                padding: 10px !important;
+                font-size: 13px !important;
+            }
+
+            /* PROFILE CARD */
+            .profile-card {
+                padding: 14px !important;
+                border-radius: 14px !important;
+            }
+            .profile-header {
+                flex-direction: column !important;
+                align-items: center !important;
+                text-align: center !important;
+                gap: 12px !important;
+                padding-bottom: 16px !important;
+            }
+            .profile-logo {
+                width: 80px !important;
+                height: 80px !important;
+                font-size: 32px !important;
+            }
+            .profile-title h2 {
+                font-size: 18px !important;
+                word-break: break-word !important;
+            }
+            .profile-title p {
+                font-size: 12px !important;
+            }
+
+            /* FORM */
+            .form-grid {
+                grid-template-columns: 1fr !important;
+                gap: 10px !important;
+            }
+            .form-group {
+                margin-bottom: 8px !important;
+            }
+            .form-group label {
+                font-size: 12px !important;
+                margin-bottom: 4px !important;
+            }
+            .form-group input,
+            .form-group textarea,
+            .form-group select {
+                padding: 8px 10px !important;
+                font-size: 14px !important;
+                border-radius: 8px !important;
+                width: 100% !important;
+                box-sizing: border-box !important;
+            }
+            .form-group textarea {
+                min-height: 80px !important;
+            }
+            .form-full {
+                grid-column: 1 !important;
+            }
+
+            /* SIDEBAR */
+            .sidebar {
+                left: -280px !important;
+                width: 280px !important;
+            }
+            .sidebar.active {
+                left: 0 !important;
+            }
+            .sidebar-header {
+                padding: 16px 20px !important;
+            }
+            .sidebar-header h2 {
+                font-size: 16px !important;
+            }
+            .sidebar-header p {
+                font-size: 10px !important;
+            }
+            .logo-icon-small {
+                width: 45px !important;
+                height: 45px !important;
+                font-size: 18px !important;
+            }
+            .nav-item {
+                padding: 8px 16px !important;
+                margin: 2px 10px !important;
+                border-radius: 10px !important;
+                gap: 10px !important;
+            }
+            .nav-item i {
+                width: 18px !important;
+                font-size: 14px !important;
+            }
+            .nav-item span {
+                font-size: 13px !important;
+            }
+
+            /* MENU TOGGLE */
+            .menu-toggle {
+                display: block !important;
+                position: fixed !important;
+                top: 10px !important;
+                left: 10px !important;
+                z-index: 1001 !important;
+                background: #1a2a4f !important;
+                color: white !important;
+                border: none !important;
+                padding: 8px 10px !important;
+                border-radius: 8px !important;
+                cursor: pointer !important;
+                font-size: 15px !important;
+                box-shadow: 0 3px 10px rgba(0,0,0,0.2) !important;
+            }
+
+            /* MAIN CONTENT */
+            .main-content {
+                margin-left: 0 !important;
+                padding: 10px !important;
+            }
+
+            /* IMAGE PREVIEW */
+            .image-preview {
+                width: 100% !important;
+                height: 100px !important;
+                object-fit: cover !important;
+                border-radius: 8px !important;
+            }
+
+            .alert {
+                padding: 8px 12px !important;
+                font-size: 12px !important;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .topbar {
+                margin-top: 46px !important;
+                padding: 10px !important;
+            }
+            .page-title h1 {
+                font-size: 15px !important;
+            }
+            .page-title p {
+                font-size: 10px !important;
+            }
+            .profile-card {
+                padding: 10px !important;
+            }
+            .profile-logo {
+                width: 64px !important;
+                height: 64px !important;
+                font-size: 24px !important;
+            }
+            .profile-title h2 {
+                font-size: 16px !important;
+            }
+            .form-group input,
+            .form-group textarea,
+            .form-group select {
+                font-size: 14px !important;
+                padding: 6px 8px !important;
+            }
+            .btn-save {
+                padding: 8px !important;
+                font-size: 12px !important;
+            }
+            .menu-toggle {
+                top: 8px !important;
+                left: 8px !important;
+                padding: 6px 8px !important;
+                font-size: 13px !important;
+            }
+            .nav-item {
+                padding: 6px 12px !important;
+                margin: 2px 8px !important;
+            }
+            .nav-item span {
+                font-size: 12px !important;
+            }
+        }
+
+        @media (max-width: 360px) {
+            .topbar {
+                margin-top: 40px !important;
+            }
+            .page-title h1 {
+                font-size: 13px !important;
+            }
+            .profile-logo {
+                width: 56px !important;
+                height: 56px !important;
+                font-size: 20px !important;
+            }
+            .profile-title h2 {
+                font-size: 14px !important;
+            }
+            .form-group label {
+                font-size: 11px !important;
+            }
+            .form-group input,
+            .form-group textarea,
+            .form-group select {
+                font-size: 13px !important;
+                padding: 5px 7px !important;
+            }
+            .btn-save {
+                font-size: 11px !important;
+                padding: 6px !important;
+            }
+        }
+
+        /* Mencegah zoom otomatis */
+        input,
+        select,
+        textarea {
+            font-size: 16px !important;
         }
     </style>
 </head>
@@ -328,7 +593,7 @@
         <i class="fas fa-bars"></i>
     </button>
 
-    <!-- SIDEBAR -->
+    <!-- ==================== SIDEBAR ==================== -->
     <div class="sidebar" id="sidebar">
         <div class="sidebar-header">
             <div class="logo-icon-small">
@@ -357,250 +622,166 @@
         </div>
     </div>
 
-    <!-- Main Content -->
+    <!-- ==================== MAIN CONTENT ==================== -->
     <div class="main-content">
         <div class="topbar">
             <div class="page-title">
                 <h1>🏛️ Profil Yayasan</h1>
                 <p>Kelola informasi profil, visi, misi, dan sejarah yayasan</p>
             </div>
-            <button class="btn-save" id="saveProfilBtn">
+            <button class="btn-save" onclick="saveProfile()">
                 <i class="fas fa-save"></i> Simpan Perubahan
             </button>
         </div>
 
-        <form id="profilForm">
-            <!-- Informasi Dasar -->
-            <div class="profile-card">
-                <h2><i class="fas fa-info-circle"></i> Informasi Dasar</h2>
-                <div class="form-row">
-                    <div class="form-group">
-                        <label>Nama Yayasan</label>
-                        <input type="text" id="yayasanName" placeholder="Nama lengkap yayasan">
-                    </div>
-                    <div class="form-group">
-                        <label>Nama Singkat</label>
-                        <input type="text" id="yayasanShortName" placeholder="Contoh: YPNS">
-                    </div>
+        <div id="alertMessage" class="alert"></div>
+
+        <div class="profile-card">
+            <div class="profile-header">
+                <div class="profile-logo" id="logoContainer" onclick="document.getElementById('logoInput').click()">
+                    <i class="fas fa-landmark"></i>
+                    <div class="upload-overlay"><i class="fas fa-camera"></i> Upload Logo</div>
+                    <input type="file" id="logoInput" accept="image/*" style="display:none" onchange="uploadLogo(event)">
                 </div>
-                <div class="form-row">
-                    <div class="form-group">
-                        <label>Tahun Berdiri</label>
-                        <input type="text" id="yayasanYear" placeholder="Contoh: 1990">
-                    </div>
-                    <div class="form-group">
-                        <label>NPWP Yayasan</label>
-                        <input type="text" id="yayasanNpwp" placeholder="Nomor NPWP">
-                    </div>
-                </div>
-                <div class="image-upload">
-                    <label>Logo Yayasan</label>
-                    <input type="file" id="logoUpload" accept="image/*">
-                    <div id="logoPreviewContainer"></div>
-                    <small style="color:#999;">Format JPG/PNG, ukuran max 2MB</small>
+                <div class="profile-title">
+                    <h2 id="yayasanName">Yayasan Pendidikan Nusantara Sejahtera</h2>
+                    <p><i class="fas fa-calendar"></i> Berdiri sejak 1985</p>
+                    <p><i class="fas fa-map-pin"></i> Jakarta Selatan, DKI Jakarta</p>
                 </div>
             </div>
 
-            <!-- Visi & Misi -->
-            <div class="visi-misi-grid">
-                <div class="profile-card">
-                    <h2><i class="fas fa-eye"></i> Visi</h2>
+            <form id="profileForm">
+                <div class="form-grid">
                     <div class="form-group">
-                        <textarea id="visi" rows="5" placeholder="Tulis visi yayasan..."></textarea>
+                        <label><i class="fas fa-building"></i> Nama Yayasan</label>
+                        <input type="text" id="namaYayasan" value="Yayasan Pendidikan Nusantara Sejahtera">
                     </div>
-                </div>
-                <div class="profile-card">
-                    <h2><i class="fas fa-bullseye"></i> Misi</h2>
                     <div class="form-group">
-                        <textarea id="misi" rows="5" placeholder="Tulis misi yayasan (pisahkan dengan angka)..."></textarea>
+                        <label><i class="fas fa-calendar"></i> Tahun Berdiri</label>
+                        <input type="number" id="tahunBerdiri" value="1985">
+                    </div>
+                    <div class="form-group">
+                        <label><i class="fas fa-map-pin"></i> Alamat</label>
+                        <input type="text" id="alamat" value="Jl. Pendidikan No. 123, Kebayoran Baru, Jakarta Selatan 12180">
+                    </div>
+                    <div class="form-group">
+                        <label><i class="fas fa-phone"></i> Telepon</label>
+                        <input type="text" id="telepon" value="(021) 1234-5678">
+                    </div>
+                    <div class="form-group">
+                        <label><i class="fas fa-envelope"></i> Email</label>
+                        <input type="email" id="email" value="info@yns.sch.id">
+                    </div>
+                    <div class="form-group">
+                        <label><i class="fas fa-globe"></i> Website</label>
+                        <input type="text" id="website" value="www.yns.sch.id">
+                    </div>
+                    <div class="form-group">
+                        <label><i class="fas fa-id-card"></i> NPWP</label>
+                        <input type="text" id="npwp" value="01.234.567.8-901.000">
+                    </div>
+                    <div class="form-group">
+                        <label><i class="fas fa-user-tie"></i> Ketua Yayasan</label>
+                        <input type="text" id="ketua" value="Dr. H. Ahmad Sudrajat, M.Pd">
+                    </div>
+                    <div class="form-group form-full">
+                        <label><i class="fas fa-eye"></i> Visi</label>
+                        <textarea id="visi">Mewujudkan generasi unggul, berkarakter, dan berdaya saing global yang berlandaskan iman dan takwa.</textarea>
+                    </div>
+                    <div class="form-group form-full">
+                        <label><i class="fas fa-bullseye"></i> Misi</label>
+                        <textarea id="misi">1. Menyelenggarakan pendidikan berkualitas dari TK hingga Perguruan Tinggi.
+2. Mengembangkan potensi siswa secara holistik dalam bidang akademik dan non-akademik.
+3. Membangun karakter bangsa melalui pendidikan karakter yang terintegrasi.
+4. Menciptakan lingkungan belajar yang inovatif, kreatif, dan menyenangkan.
+5. Menjalin kerjasama dengan berbagai pihak untuk peningkatan mutu pendidikan.</textarea>
                     </div>
                 </div>
-            </div>
+            </form>
+        </div>
 
-            <!-- Sejarah & Tujuan -->
-            <div class="profile-card">
-                <h2><i class="fas fa-history"></i> Sejarah Yayasan</h2>
-                <div class="form-group">
-                    <textarea id="sejarah" rows="6" placeholder="Ceritakan sejarah berdirinya yayasan..."></textarea>
-                </div>
-            </div>
-
-            <div class="profile-card">
-                <h2><i class="fas fa-flag-checkered"></i> Tujuan Yayasan</h2>
-                <div class="form-group">
-                    <textarea id="tujuan" rows="5" placeholder="Tulis tujuan didirikannya yayasan..."></textarea>
-                </div>
-            </div>
-
-            <!-- Motto & Preview -->
-            <div class="profile-card motto-card">
-                <h2><i class="fas fa-quote-right"></i> Motto Yayasan</h2>
-                <div class="form-group">
-                    <input type="text" id="motto" placeholder="Tulis motto yayasan...">
-                </div>
-            </div>
-
-            <!-- Preview Card -->
-            <div class="profile-card">
-                <h2><i class="fas fa-eye"></i> Preview Profil</h2>
-                <div class="info-box" id="previewBox">
-                    <div style="display: flex; align-items: center; gap: 16px; margin-bottom: 20px;">
-                        <div id="previewLogo" class="logo-placeholder" style="width: 60px; height: 60px; font-size: 24px;">
-                            <i class="fas fa-landmark"></i>
-                        </div>
-                        <div>
-                            <h3 id="previewName" style="margin-bottom: 4px;">Yayasan Pendidikan Nusantara Sejahtera</h3>
-                            <p id="previewShortName" style="font-size: 12px; color: #667eea;">YPNS</p>
-                        </div>
-                    </div>
-                    <div id="previewContent"></div>
-                </div>
-            </div>
-        </form>
+        <div class="footer">
+            <i class="fas fa-building"></i> YP Nusantara Sejahtera &bull; Profil Yayasan
+        </div>
     </div>
 
     <script>
-        if(!localStorage.getItem('isLoggedIn')) window.location.href = '../index.html';
+        // ========== CEK LOGIN ==========
+        if (!localStorage.getItem('isLoggedIn')) window.location.href = '../index.html';
 
-        // Load data
-        function loadProfil() {
-            const profil = JSON.parse(localStorage.getItem('yayasanProfil')) || {
-                name: 'Yayasan Pendidikan Nusantara Sejahtera',
-                shortName: 'YPNS',
-                year: '1990',
-                npwp: '12.345.678.9-123.000',
-                logo: '',
-                visi: 'Menjadi yayasan pendidikan terkemuka yang melahirkan generasi unggul, berakhlak mulia, dan berdaya saing global di tingkat nasional maupun internasional.',
-                misi: '1. Menyelenggarakan pendidikan berkualitas dari usia dini hingga perguruan tinggi\n2. Mengembangkan kurikulum yang adaptif terhadap perkembangan zaman\n3. Membangun karakter peserta didik berdasarkan nilai-nilai keagamaan dan kebangsaan\n4. Menjalin kerjasama dengan berbagai institusi pendidikan dalam dan luar negeri\n5. Meningkatkan kompetensi tenaga pendidik secara berkelanjutan',
-                sejarah: 'Yayasan Pendidikan Nusantara Sejahtera (YPNS) didirikan pada tanggal 17 Agustus 1990 oleh sekelompok tokoh pendidikan yang peduli terhadap masa depan generasi bangsa. Berawal dari sebuah TK sederhana dengan 25 siswa, YPNS kini telah berkembang menjadi yayasan yang mengelola 5 unit pendidikan dari TK hingga Universitas. Selama 34 tahun perjalanannya, YPNS telah melahirkan ribuan lulusan yang berkontribusi di berbagai bidang.',
-                tujuan: '1. Mencerdaskan kehidupan bangsa melalui pendidikan yang merata dan berkualitas\n2. Mempersiapkan generasi yang siap menghadapi tantangan global\n3. Mengembangkan potensi akademik dan non-akademik peserta didik\n4. Membangun jaringan kerjasama dengan dunia industri dan pendidikan\n5. Menjadikan setiap unit pendidikan sebagai pusat keunggulan di bidangnya',
-                motto: 'Berilmu, Beramal, Berakhlak'
-            };
-            
-            document.getElementById('yayasanName').value = profil.name;
-            document.getElementById('yayasanShortName').value = profil.shortName;
-            document.getElementById('yayasanYear').value = profil.year || '';
-            document.getElementById('yayasanNpwp').value = profil.npwp || '';
-            document.getElementById('visi').value = profil.visi;
-            document.getElementById('misi').value = profil.misi;
-            document.getElementById('sejarah').value = profil.sejarah;
-            document.getElementById('tujuan').value = profil.tujuan;
-            document.getElementById('motto').value = profil.motto;
-            
-            if(profil.logo) {
-                const previewContainer = document.getElementById('logoPreviewContainer');
-                previewContainer.innerHTML = `<img src="${profil.logo}" class="logo-preview" style="width:120px; height:120px; object-fit:cover;">`;
-                document.getElementById('previewLogo').innerHTML = `<img src="${profil.logo}" style="width:60px; height:60px; border-radius:12px; object-fit:cover;">`;
-            }
-            
-            updatePreview();
-        }
-
-        // Preview update
-        function updatePreview() {
-            const name = document.getElementById('yayasanName').value || 'Yayasan Pendidikan Nusantara Sejahtera';
-            const shortName = document.getElementById('yayasanShortName').value || 'YPNS';
-            const visi = document.getElementById('visi').value || 'Visi belum diisi';
-            const misi = document.getElementById('misi').value || 'Misi belum diisi';
-            const motto = document.getElementById('motto').value || 'Motto belum diisi';
-            
-            document.getElementById('previewName').innerText = name;
-            document.getElementById('previewShortName').innerText = shortName;
-            
-            document.getElementById('previewContent').innerHTML = `
-                <div style="margin-bottom: 16px;">
-                    <strong style="color: #1a2a4f;">📌 Motto</strong>
-                    <p style="font-style: italic; margin-top: 4px;">"${motto}"</p>
-                </div>
-                <div style="margin-bottom: 16px;">
-                    <strong style="color: #1a2a4f;">👁️ Visi</strong>
-                    <p style="margin-top: 4px;">${visi.substring(0, 150)}${visi.length > 150 ? '...' : ''}</p>
-                </div>
-                <div>
-                    <strong style="color: #1a2a4f;">🎯 Misi</strong>
-                    <p style="margin-top: 4px;">${misi.substring(0, 150)}${misi.length > 150 ? '...' : ''}</p>
-                </div>
-            `;
-        }
-
-        // Logo upload preview
-        document.getElementById('logoUpload').addEventListener('change', function(e) {
+        // ========== UPLOAD LOGO ==========
+        function uploadLogo(e) {
             const file = e.target.files[0];
-            if(file) {
+            if (file) {
                 const reader = new FileReader();
                 reader.onload = function(event) {
-                    const previewContainer = document.getElementById('logoPreviewContainer');
-                    previewContainer.innerHTML = `<img src="${event.target.result}" class="logo-preview" style="width:120px; height:120px; object-fit:cover; border-radius:20px;">`;
-                    document.getElementById('previewLogo').innerHTML = `<img src="${event.target.result}" style="width:60px; height:60px; border-radius:12px; object-fit:cover;">`;
+                    const container = document.getElementById('logoContainer');
+                    container.innerHTML =
+                        `<img src="${event.target.result}" alt="Logo"><div class="upload-overlay"><i class="fas fa-camera"></i> Ganti Logo</div>`;
                 };
                 reader.readAsDataURL(file);
             }
-        });
+        }
 
-        // Live preview on input
-        const inputs = ['yayasanName', 'yayasanShortName', 'visi', 'misi', 'motto'];
-        inputs.forEach(id => {
-            document.getElementById(id).addEventListener('input', updatePreview);
-        });
-
-        // Save profil
-        document.getElementById('saveProfilBtn').onclick = () => {
-            const logoPreview = document.querySelector('#logoPreviewContainer img');
-            const logo = logoPreview ? logoPreview.src : '';
-            
-            const profil = {
-                name: document.getElementById('yayasanName').value,
-                shortName: document.getElementById('yayasanShortName').value,
-                year: document.getElementById('yayasanYear').value,
-                npwp: document.getElementById('yayasanNpwp').value,
-                logo: logo,
+        // ========== SAVE PROFILE ==========
+        function saveProfile() {
+            const data = {
+                nama: document.getElementById('namaYayasan').value,
+                tahun: document.getElementById('tahunBerdiri').value,
+                alamat: document.getElementById('alamat').value,
+                telepon: document.getElementById('telepon').value,
+                email: document.getElementById('email').value,
+                website: document.getElementById('website').value,
+                npwp: document.getElementById('npwp').value,
+                ketua: document.getElementById('ketua').value,
                 visi: document.getElementById('visi').value,
-                misi: document.getElementById('misi').value,
-                sejarah: document.getElementById('sejarah').value,
-                tujuan: document.getElementById('tujuan').value,
-                motto: document.getElementById('motto').value,
-                updatedAt: new Date().toISOString()
+                misi: document.getElementById('misi').value
             };
-            
-            if(!profil.name) return alert('⚠️ Nama Yayasan harus diisi!');
-            
-            localStorage.setItem('yayasanProfil', JSON.stringify(profil));
-            alert('✅ Profil Yayasan berhasil disimpan!');
-        };
 
-        // Add real-time preview for other fields
-        document.getElementById('sejarah').addEventListener('input', function() {
-            const sejarah = this.value;
-            const previewBox = document.getElementById('previewContent');
-            const visi = document.getElementById('visi').value || 'Visi belum diisi';
-            const misi = document.getElementById('misi').value || 'Misi belum diisi';
-            const motto = document.getElementById('motto').value || 'Motto belum diisi';
-            
-            previewBox.innerHTML = `
-                <div style="margin-bottom: 16px;">
-                    <strong style="color: #1a2a4f;">📌 Motto</strong>
-                    <p style="font-style: italic; margin-top: 4px;">"${motto}"</p>
-                </div>
-                <div style="margin-bottom: 16px;">
-                    <strong style="color: #1a2a4f;">👁️ Visi</strong>
-                    <p style="margin-top: 4px;">${visi.substring(0, 150)}${visi.length > 150 ? '...' : ''}</p>
-                </div>
-                <div style="margin-bottom: 16px;">
-                    <strong style="color: #1a2a4f;">🎯 Misi</strong>
-                    <p style="margin-top: 4px;">${misi.substring(0, 150)}${misi.length > 150 ? '...' : ''}</p>
-                </div>
-                <div>
-                    <strong style="color: #1a2a4f;">📜 Sejarah Singkat</strong>
-                    <p style="margin-top: 4px;">${sejarah.substring(0, 200)}${sejarah.length > 200 ? '...' : ''}</p>
-                </div>
-            `;
-        });
+            localStorage.setItem('yayasanProfile', JSON.stringify(data));
 
-        document.getElementById('tujuan').addEventListener('input', function() {});
-        
-        loadProfil();
+            const alert = document.getElementById('alertMessage');
+            alert.className = 'alert alert-success';
+            alert.textContent = '✅ Profil yayasan berhasil disimpan!';
+            setTimeout(() => {
+                alert.className = 'alert';
+                alert.textContent = '';
+            }, 3000);
 
-        // ==================== NAVIGASI STANDAR ====================
+            // Update nama di header
+            document.getElementById('yayasanName').textContent = data.nama;
+        }
+
+        // ========== LOAD PROFILE ==========
+        function loadProfile() {
+            const saved = localStorage.getItem('yayasanProfile');
+            if (saved) {
+                const data = JSON.parse(saved);
+                document.getElementById('namaYayasan').value = data.nama || 'Yayasan Pendidikan Nusantara Sejahtera';
+                document.getElementById('tahunBerdiri').value = data.tahun || 1985;
+                document.getElementById('alamat').value = data.alamat || '';
+                document.getElementById('telepon').value = data.telepon || '';
+                document.getElementById('email').value = data.email || '';
+                document.getElementById('website').value = data.website || '';
+                document.getElementById('npwp').value = data.npwp || '';
+                document.getElementById('ketua').value = data.ketua || '';
+                document.getElementById('visi').value = data.visi || '';
+                document.getElementById('misi').value = data.misi || '';
+                document.getElementById('yayasanName').textContent = data.nama || 'Yayasan Pendidikan Nusantara Sejahtera';
+            }
+        }
+        loadProfile();
+
+        // ==================== NAVIGASI ====================
+        function getBasePath() {
+            if (window.location.pathname.includes('/pages/')) {
+                return '';
+            } else {
+                return 'pages/';
+            }
+        }
+        const basePath = getBasePath();
+
         document.querySelectorAll('.nav-item[data-page]').forEach(item => {
             item.addEventListener('click', () => {
                 const page = item.dataset.page;
@@ -621,12 +802,14 @@
                     kontak: 'kontak.html',
                     laporan: 'laporan.html'
                 };
-                if(pages[page]) window.location.href = pages[page];
+                if (pages[page]) {
+                    window.location.href = basePath + pages[page];
+                }
             });
         });
 
         document.getElementById('logoutBtn').onclick = () => {
-            if(confirm('Yakin ingin logout?')) {
+            if (confirm('Yakin ingin logout?')) {
                 localStorage.removeItem('isLoggedIn');
                 window.location.href = '../index.html';
             }
@@ -635,6 +818,15 @@
         document.getElementById('menuToggle').onclick = () => {
             document.getElementById('sidebar').classList.toggle('active');
         };
+
+        // Tutup sidebar saat klik di luar
+        document.addEventListener('click', function(event) {
+            const sidebar = document.getElementById('sidebar');
+            const toggle = document.getElementById('menuToggle');
+            if (!sidebar.contains(event.target) && !toggle.contains(event.target)) {
+                sidebar.classList.remove('active');
+            }
+        });
     </script>
 </body>
 </html>
