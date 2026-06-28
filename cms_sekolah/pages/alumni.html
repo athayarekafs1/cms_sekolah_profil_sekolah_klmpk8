@@ -2,7 +2,7 @@
 <html lang="id">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>Alumni - YP Nusantara Sejahtera</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -106,21 +106,25 @@
             background: #1a2a4f;
             color: white;
             border: none;
-            padding: 12px;
+            padding: 14px 16px;
             border-radius: 12px;
             cursor: pointer;
+            font-size: 18px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.2);
         }
 
+        /* ==================== RESPONSIVE SIDEBAR ==================== */
         @media (max-width: 1024px) {
             .sidebar {
                 left: -280px;
             }
             .sidebar.active {
                 left: 0;
+                box-shadow: 4px 0 30px rgba(0,0,0,0.3);
             }
             .main-content {
                 margin-left: 0;
-                padding: 20px;
+                padding: 16px;
             }
             .menu-toggle {
                 display: block;
@@ -181,7 +185,7 @@
             box-shadow: 0 4px 12px rgba(102,126,234,0.3);
         }
 
-        /* Stats Cards - Lebih Kecil */
+        /* Stats Cards */
         .stats-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
@@ -226,7 +230,7 @@
             margin-top: 2px;
         }
 
-        /* Filter Section - Lebih Rapat */
+        /* Filter Section */
         .filter-section {
             background: white;
             border-radius: 14px;
@@ -260,10 +264,10 @@
             width: 220px;
         }
 
-        /* Alumni Grid - BANYAK KOLOM (6 kolom di desktop) */
+        /* Alumni Grid */
         .alumni-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+            grid-template-columns: repeat(6, 1fr);
             gap: 16px;
         }
 
@@ -309,7 +313,7 @@
             }
         }
 
-        /* Alumni Card - LEBIH KECIL */
+        /* Alumni Card */
         .alumni-card {
             background: white;
             border-radius: 16px;
@@ -327,7 +331,6 @@
             box-shadow: 0 10px 20px -8px rgba(0,0,0,0.12);
         }
 
-        /* Header Card - Lebih kecil */
         .alumni-header {
             position: relative;
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
@@ -376,7 +379,6 @@
             white-space: nowrap;
         }
 
-        /* Body Card - Lebih kecil */
         .alumni-body {
             padding: 14px 12px 12px;
             flex: 1;
@@ -409,7 +411,6 @@
             color: #4338ca;
         }
 
-        /* Testimoni - Lebih kecil */
         .alumni-testimoni {
             background: #f8fafc;
             padding: 8px 10px;
@@ -434,7 +435,6 @@
             left: 6px;
         }
 
-        /* Actions - Lebih kecil */
         .alumni-actions {
             display: flex;
             gap: 6px;
@@ -602,6 +602,251 @@
             font-size: 48px;
             margin-bottom: 12px;
             opacity: 0.5;
+        }
+
+        /* ================================================================ */
+        /* ========== TAMBAHAN RESPONSIVE UNTUK HP PORTRAIT ========== */
+        /* ================================================================ */
+
+        /* Tablet & HP Landscape (max-width: 1024px) */
+        @media (max-width: 1024px) {
+            .main-content {
+                padding: 16px;
+                margin-left: 0;
+            }
+            .topbar {
+                padding: 14px 18px;
+                margin-top: 56px;
+            }
+            .page-title h1 {
+                font-size: 20px;
+            }
+        }
+
+        /* HP Portrait (max-width: 768px) */
+        @media (max-width: 768px) {
+            /* Topbar jadi stack */
+            .topbar {
+                flex-direction: column;
+                align-items: stretch;
+                gap: 12px;
+                padding: 14px 16px;
+                margin-top: 56px;
+            }
+            .btn-add {
+                width: 100%;
+                justify-content: center;
+                padding: 12px;
+            }
+
+            /* Stats grid jadi 2 kolom */
+            .stats-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 10px;
+            }
+            .stat-card {
+                padding: 12px 14px;
+            }
+            .stat-icon {
+                width: 36px;
+                height: 36px;
+                font-size: 14px;
+            }
+            .stat-info h3 {
+                font-size: 18px;
+            }
+            .stat-info p {
+                font-size: 10px;
+            }
+
+            /* Filter section stack */
+            .filter-section {
+                flex-direction: column;
+                align-items: stretch;
+                gap: 10px;
+                padding: 12px 14px;
+            }
+            .filter-group {
+                flex-direction: column;
+                gap: 8px;
+            }
+            .filter-select,
+            .search-input {
+                width: 100% !important;
+                padding: 10px 14px;
+                font-size: 13px;
+            }
+
+            /* Alumni grid 2 kolom (biar tetap rapi) */
+            .alumni-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 12px;
+            }
+
+            /* Card lebih kecil */
+            .alumni-header {
+                padding: 12px 8px 32px 8px;
+            }
+            .alumni-avatar {
+                width: 56px;
+                height: 56px;
+                font-size: 24px;
+            }
+            .alumni-name {
+                font-size: 12px;
+            }
+            .alumni-year-badge {
+                font-size: 9px;
+                padding: 2px 8px;
+            }
+            .alumni-body {
+                padding: 10px 10px 10px;
+            }
+            .alumni-info-item {
+                font-size: 10px;
+                gap: 6px;
+            }
+            .alumni-testimoni {
+                font-size: 10px;
+                padding: 6px 8px;
+                max-height: 50px;
+            }
+            .alumni-actions {
+                gap: 4px;
+                padding-top: 8px;
+            }
+            .action-btn {
+                font-size: 9px;
+                padding: 4px 6px;
+            }
+
+            /* Modal */
+            .modal-content {
+                padding: 20px;
+                margin: 12px;
+                max-height: 90vh;
+            }
+            .modal-header h2 {
+                font-size: 17px;
+            }
+            .form-row {
+                grid-template-columns: 1fr;
+                gap: 10px;
+            }
+            .form-group {
+                margin-bottom: 12px;
+            }
+            .form-group input,
+            .form-group select,
+            .form-group textarea {
+                font-size: 14px;
+                padding: 10px 12px;
+            }
+            .modal-footer {
+                flex-direction: column;
+                gap: 8px;
+            }
+            .btn-submit,
+            .btn-cancel {
+                padding: 12px;
+            }
+        }
+
+        /* HP kecil (max-width: 480px) */
+        @media (max-width: 480px) {
+            .alumni-grid {
+                grid-template-columns: 1fr;
+                gap: 14px;
+            }
+            .stats-grid {
+                grid-template-columns: 1fr 1fr;
+                gap: 8px;
+            }
+            .stat-card {
+                padding: 10px 12px;
+            }
+            .stat-icon {
+                width: 32px;
+                height: 32px;
+                font-size: 12px;
+            }
+            .stat-info h3 {
+                font-size: 16px;
+            }
+
+            /* Card alumni full width */
+            .alumni-header {
+                padding: 16px 12px 40px 12px;
+            }
+            .alumni-avatar {
+                width: 64px;
+                height: 64px;
+                font-size: 28px;
+            }
+            .alumni-name {
+                font-size: 14px;
+            }
+
+            .page-title h1 {
+                font-size: 18px;
+            }
+            .page-title p {
+                font-size: 12px;
+            }
+
+            /* Tombol menu lebih kecil */
+            .menu-toggle {
+                top: 12px;
+                left: 12px;
+                padding: 10px 12px;
+                font-size: 16px;
+            }
+
+            .modal-content {
+                padding: 16px;
+                border-radius: 18px;
+            }
+        }
+
+        /* HP dengan layar sangat kecil (max-width: 360px) */
+        @media (max-width: 360px) {
+            .stats-grid {
+                grid-template-columns: 1fr;
+            }
+            .alumni-header {
+                padding: 12px 8px 32px 8px;
+            }
+            .alumni-avatar {
+                width: 50px;
+                height: 50px;
+                font-size: 20px;
+            }
+            .alumni-name {
+                font-size: 11px;
+            }
+            .alumni-year-badge {
+                font-size: 8px;
+                padding: 2px 6px;
+            }
+            .alumni-body {
+                padding: 8px 8px 8px;
+            }
+            .alumni-info-item {
+                font-size: 9px;
+            }
+            .alumni-testimoni {
+                font-size: 9px;
+                max-height: 40px;
+            }
+            .action-btn {
+                font-size: 8px;
+                padding: 3px 4px;
+            }
+        }
+
+        /* Mencegah zoom otomatis di input pada mobile */
+        input, select, textarea {
+            font-size: 16px !important;
         }
     </style>
 </head>
@@ -970,6 +1215,15 @@
         document.getElementById('menuToggle').onclick = () => {
             document.getElementById('sidebar').classList.toggle('active');
         };
+
+        // Tutup sidebar saat klik di luar (opsional)
+        document.addEventListener('click', function(event) {
+            const sidebar = document.getElementById('sidebar');
+            const toggle = document.getElementById('menuToggle');
+            if (!sidebar.contains(event.target) && !toggle.contains(event.target)) {
+                sidebar.classList.remove('active');
+            }
+        });
 
         window.onclick = function(event) {
             if (event.target === modal) modal.style.display = 'none';
