@@ -2,7 +2,7 @@
 <html lang="id">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>Berita & Artikel - YP Nusantara Sejahtera</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -35,14 +35,37 @@
         .nav-item i { width: 22px; font-size: 16px; }
         .nav-item span { font-size: 14px; font-weight: 500; }
         .menu-toggle {
-            display: none; position: fixed; top: 20px; left: 20px; z-index: 1001;
-            background: #1a2a4f; color: white; border: none; padding: 12px; border-radius: 12px; cursor: pointer;
+            display: none;
+            position: fixed;
+            top: 20px;
+            left: 20px;
+            z-index: 1001;
+            background: #1a2a4f;
+            color: white;
+            border: none;
+            padding: 14px 16px;
+            border-radius: 12px;
+            cursor: pointer;
+            font-size: 18px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.2);
         }
+
+        /* ==================== RESPONSIVE SIDEBAR ==================== */
         @media (max-width: 1024px) {
-            .sidebar { left: -280px; }
-            .sidebar.active { left: 0; }
-            .main-content { margin-left: 0; padding: 20px; }
-            .menu-toggle { display: block; }
+            .sidebar {
+                left: -280px;
+            }
+            .sidebar.active {
+                left: 0;
+                box-shadow: 4px 0 30px rgba(0,0,0,0.3);
+            }
+            .main-content {
+                margin-left: 0;
+                padding: 16px;
+            }
+            .menu-toggle {
+                display: block;
+            }
         }
 
         .main-content { margin-left: 280px; padding: 24px 32px; transition: all 0.3s; }
@@ -302,6 +325,182 @@
         .modal-footer { display: flex; gap: 12px; margin-top: 24px; }
         .btn-submit { flex: 1; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; border: none; padding: 12px; border-radius: 12px; font-weight: 600; cursor: pointer; }
         .btn-cancel { flex: 1; background: #f1f5f9; color: #475569; border: none; padding: 12px; border-radius: 12px; font-weight: 600; cursor: pointer; }
+
+        /* ================================================================ */
+        /* ========== TAMBAHAN RESPONSIVE UNTUK HP ========== */
+        /* ================================================================ */
+
+        @media (max-width: 1024px) {
+            .main-content {
+                padding: 16px;
+                margin-left: 0;
+            }
+            .topbar {
+                padding: 14px 18px;
+                margin-top: 56px;
+            }
+            .page-title h1 {
+                font-size: 20px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .topbar {
+                flex-direction: column;
+                align-items: stretch;
+                gap: 12px;
+                padding: 14px 16px;
+                margin-top: 56px;
+            }
+            .btn-add {
+                width: 100%;
+                justify-content: center;
+                padding: 12px;
+            }
+            .stats-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 10px;
+            }
+            .stat-card {
+                padding: 12px 14px;
+            }
+            .stat-icon {
+                width: 36px;
+                height: 36px;
+                font-size: 14px;
+            }
+            .stat-info h3 {
+                font-size: 18px;
+            }
+            .stat-info p {
+                font-size: 10px;
+            }
+            .filter-section {
+                flex-direction: column;
+                align-items: stretch;
+                gap: 10px;
+                padding: 12px 14px;
+            }
+            .filter-group {
+                flex-direction: column;
+                gap: 8px;
+            }
+            .filter-select,
+            .search-input {
+                width: 100% !important;
+                padding: 10px 14px;
+                font-size: 13px;
+            }
+            .berita-grid {
+                grid-template-columns: 1fr;
+                gap: 16px;
+            }
+            .berita-image-container {
+                height: 160px;
+            }
+            .berita-content {
+                padding: 14px 16px;
+            }
+            .berita-title {
+                font-size: 15px;
+            }
+            .berita-excerpt {
+                font-size: 13px;
+            }
+            .berita-actions {
+                flex-wrap: wrap;
+            }
+            .action-btn {
+                font-size: 11px;
+                padding: 6px 10px;
+            }
+            .modal-content {
+                padding: 20px;
+                margin: 12px;
+                max-height: 90vh;
+            }
+            .modal-header h2 {
+                font-size: 17px;
+            }
+            .form-row {
+                grid-template-columns: 1fr;
+                gap: 10px;
+            }
+            .form-group {
+                margin-bottom: 12px;
+            }
+            .form-group input,
+            .form-group select,
+            .form-group textarea {
+                font-size: 14px;
+                padding: 10px 12px;
+            }
+            .modal-footer {
+                flex-direction: column;
+                gap: 8px;
+            }
+            .btn-submit,
+            .btn-cancel {
+                padding: 12px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .stats-grid {
+                grid-template-columns: 1fr 1fr;
+                gap: 8px;
+            }
+            .stat-card {
+                padding: 10px 12px;
+            }
+            .stat-icon {
+                width: 32px;
+                height: 32px;
+                font-size: 12px;
+            }
+            .stat-info h3 {
+                font-size: 16px;
+            }
+            .page-title h1 {
+                font-size: 18px;
+            }
+            .page-title p {
+                font-size: 12px;
+            }
+            .menu-toggle {
+                top: 12px;
+                left: 12px;
+                padding: 10px 12px;
+                font-size: 16px;
+            }
+            .modal-content {
+                padding: 16px;
+                border-radius: 18px;
+            }
+            .berita-image-container {
+                height: 140px;
+            }
+        }
+
+        @media (max-width: 360px) {
+            .stats-grid {
+                grid-template-columns: 1fr;
+            }
+            .berita-image-container {
+                height: 120px;
+            }
+            .berita-title {
+                font-size: 14px;
+            }
+            .berita-excerpt {
+                font-size: 12px;
+            }
+        }
+
+        /* Mencegah zoom otomatis di input pada mobile */
+        input, select, textarea {
+            font-size: 16px !important;
+        }
     </style>
 </head>
 <body>
@@ -703,6 +902,15 @@
         document.getElementById('menuToggle').onclick = () => {
             document.getElementById('sidebar').classList.toggle('active');
         };
+
+        // Tutup sidebar saat klik di luar
+        document.addEventListener('click', function(event) {
+            const sidebar = document.getElementById('sidebar');
+            const toggle = document.getElementById('menuToggle');
+            if (!sidebar.contains(event.target) && !toggle.contains(event.target)) {
+                sidebar.classList.remove('active');
+            }
+        });
 
         window.onclick = function(event) {
             if (event.target === modal) modal.style.display = 'none';
